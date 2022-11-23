@@ -15,7 +15,7 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index')}}">FlaskBlog</a>
+        <a class="navbar-brand" href="{{ url_for('index') }}">FlaskBlog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,8 +28,9 @@
         </div>
     </nav>
     <div class="container">
-        <h1>{% block content %} Welcome to meet you {% endblock %} {% for post in posts %}</h1>
-        <a href="{{ url_for('post', post_id=post['id']) }}">
+        <h1>{% block content %} Welcome to meet you {% endblock %}</h1>
+        {% for post in posts %}
+        <a href="{{ url_for('post',id=post['id']) }}">
             <h2>{{ post['title'] }}</h2>
         </a>
         <span class="badge badge-primary">{{ post['created'] }}</span>
